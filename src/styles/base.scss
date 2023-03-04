@@ -1,0 +1,36 @@
+@import 'styles/colors';
+@import 'styles/typography';
+
+body {
+  font-family: 'Inter', sans-serif;
+  @include body-regular;
+  color: $black;
+}
+
+.h1 {
+  @include h1;
+}
+
+.h2 {
+  @include h2;
+}
+
+.h3 {
+  @include h3;
+}
+
+.h4 {
+  @include h4;
+}
+
+.h5 {
+  @include h5;
+}
+
+.body-regular {
+  @include body-regular;
+}
+
+.body-medium {
+  @include body-medium;
+}

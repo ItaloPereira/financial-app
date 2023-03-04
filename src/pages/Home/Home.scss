@@ -1,6 +1,11 @@
-.home__title {
-  margin-bottom: 32px;
+.home__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 64px;
 }
+
+.home__title {}
 
 .home__cards {
   display: grid;
