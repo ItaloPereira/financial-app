@@ -1,0 +1,35 @@
+@import 'styles/colors';
+@import 'styles/typography';
+
+.button {
+  @include body-regular;
+  padding: 4px 16px;
+  border-style: none;
+  background-color: $primary;
+  border: 1px solid $primary;
+  border-radius: 2px;
+  color: $white;
+  cursor: pointer;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.043);
+  transition: all .25s;
+
+  &:hover {
+    background-color: $blue-5;
+    border-color: $blue-5;
+    box-shadow: none;
+  }
+
+  &:active {
+    background-color: $blue-7;
+    border-color: $blue-7;
+    box-shadow: none;
+  }
+
+  &--large {
+    padding: 8px 16px;
+  }
+}
+
+.button__icon {
+  margin-right: 8px;
+}
