@@ -1,0 +1,84 @@
+@import 'styles/colors';
+
+@mixin h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 38px;
+  line-height: 46px;
+}
+
+@mixin h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+@mixin h3 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@mixin h4 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+@mixin h5 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin body-regular {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+@mixin body-medium {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @include body-regular;
+  color: $black;
+}
+
+.h1 {
+  @include h1;
+}
+
+.h2 {
+  @include h2;
+}
+
+.h3 {
+  @include h3;
+}
+
+.h4 {
+  @include h4;
+}
+
+.h5 {
+  @include h5;
+}
+
+.body-regular {
+  @include body-regular;
+}
+
+.body-medium {
+  @include body-medium;
+}
