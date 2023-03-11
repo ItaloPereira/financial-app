@@ -1,0 +1,43 @@
+@import 'styles/colors';
+
+.content-table {
+  width: 100%;
+  border: 1px solid $gray-5;
+  background-color: $white;
+
+  th,
+  td {
+    border: 1px solid $gray-5;
+  }
+
+  input {
+    width: 50%;
+    padding: 8px;
+    border: none;
+    border-radius: 0;
+  }
+}
+
+.content-table__head__item {
+  background-color: $white;
+  padding: 8px;
+
+  &--success {
+    background-color: $green-2;
+    border-color: $green-4;
+  }
+
+  &--warning {
+    background-color: $yellow-2;
+    border-color: $yellow-4;
+  }
+
+  &--danger {
+    background-color: $red-2;
+    border-color: $red-4;
+  }
+}
+
+.data__input-container {
+  display: flex;
+}

@@ -1,0 +1,10 @@
+@import 'styles/colors';
+
+.data {}
+
+.data__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 64px;
+}
