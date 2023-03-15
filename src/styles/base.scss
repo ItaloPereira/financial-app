@@ -31,6 +31,10 @@ body {
   @include body-regular;
 }
 
+.body-small-regular {
+  @include body-small-regular;
+}
+
 .body-medium {
   @include body-medium;
 }

@@ -1,9 +1,26 @@
 import classNames from "classnames";
+import { CloseCircleOutlined } from "@ant-design/icons";
+
+import TableInput from "components/pages/data/TableInput";
+import Button from "components/_ui/Button";
 
 import "./ContentTable.scss";
 
-export default function Page(props) {
-  const { headings } = props;
+export default function ContentTable(props) {
+  const {
+    headings,
+    firstColumnContent,
+    secondColumnContent,
+    onDataChange,
+  } = props;
+
+  const rowsLength =
+    secondColumnContent.length > firstColumnContent.length
+      ? secondColumnContent.length
+      : firstColumnContent.length;
+
+  const rowsLengthArray = Array.from({ length: rowsLength }, (_, i) => i);
+  const content = [firstColumnContent, secondColumnContent];
 
   return (
     <table className="content-table">
@@ -11,6 +28,7 @@ export default function Page(props) {
         <tr>
           {headings.map((heading) => (
             <th
+              key={heading.name}
               className={classNames({
                 "content-table__head__item": true,
                 [`content-table__head__item--${heading.color}`]: heading.color,
@@ -22,50 +40,57 @@ export default function Page(props) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <div className="data__input-container">
-              <input type="text" placeholder="Nome:" />
-              <input type="number" placeholder="Valor:" />
-            </div>
-          </td>
-          <td>
-            <div className="data__input-container">
-              <input type="text" placeholder="Nome:" />
-              <input type="number" placeholder="Valor:" />
-            </div>
-          </td>
-        </tr>
+        {rowsLengthArray.map((rowIndex) => {
+          return (
+            <tr key={rowIndex}>
+              {content.map((data, contentIndex) => (
+                <td key={contentIndex}>
+                  {data[rowIndex] && (
+                    <div className="content-table__row-wrap">
+                      <div className="content-table__input-wrap">
+                        <TableInput
+                          className={`content-table__input--name-${contentIndex}`}
+                          type="text"
+                          placeholder="Nome:"
+                          name="name"
+                          value={data[rowIndex]?.name}
+                          onChange={(event) => {
+                            const column = contentIndex;
+                            onDataChange(event, column, rowIndex);
+                          }}
+                        />
+                        <TableInput
+                          type="text"
+                          kind="money"
+                          placeholder="Valor:"
+                          name="value"
+                          maxLength="12"
+                          value={data[rowIndex]?.value}
+                          onChange={(event) => {
+                            const column = contentIndex;
+                            onDataChange(event, column, rowIndex);
+                          }}
+                        />
+                      </div>
 
-        <tr>
-          <td>
-            <div className="data__input-container">
-              <input type="text" placeholder="Nome:" />
-              <input type="number" placeholder="Valor:" />
-            </div>
-          </td>
-          <td>
-            <div className="data__input-container">
-              <input type="text" placeholder="Nome:" />
-              <input type="number" placeholder="Valor:" />
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div className="data__input-container">
-              <input type="text" placeholder="Nome:" />
-              <input type="number" placeholder="Valor:" />
-            </div>
-          </td>
-          <td>
-            <div className="data__input-container">
-              <input type="text" placeholder="Nome:" />
-              <input type="number" placeholder="Valor:" />
-            </div>
-          </td>
-        </tr>
+                      <Button
+                        onClick={(event) => {
+                          const column = contentIndex;
+                          const isDeleting = true;
+                          onDataChange(event, column, rowIndex, isDeleting);
+                        }}
+                        size="small"
+                        color="dangerous"
+                        kind="text"
+                        icon={<CloseCircleOutlined />}
+                      ></Button>
+                    </div>
+                  )}
+                </td>
+              ))}
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

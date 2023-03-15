@@ -7,18 +7,18 @@
   border-radius: 5px;
 
   &--success {
-    background-color: $green-2;
-    border-color: $green-4;
+    background-color: $green-2-alter;
+    border-color: $green-4-alter;
   }
 
   &--warning {
-    background-color: $yellow-2;
-    border-color: $yellow-4;
+    background-color: $yellow-2-alter;
+    border-color: $yellow-4-alter;
   }
 
   &--danger {
-    background-color: $red-2;
-    border-color: $red-4;
+    background-color: $red-2-alter;
+    border-color: $red-4-alter;
   }
 }
 

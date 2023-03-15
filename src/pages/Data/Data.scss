@@ -8,3 +8,12 @@
   align-items: center;
   margin-bottom: 64px;
 }
+
+.data__footer {
+  display: flex;
+  margin-top: 24px;
+}
+
+.data__footer__column {
+  width: 50%;
+}
