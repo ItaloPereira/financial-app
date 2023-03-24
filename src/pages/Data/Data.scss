@@ -4,16 +4,22 @@
 
 .data__header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 64px;
+  gap: 8px;
 }
 
-.data__footer {
+.data__add-item {
   display: flex;
   margin-top: 24px;
 }
 
-.data__footer__column {
+.data__add-item__column {
   width: 50%;
+}
+
+.data__footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
 }

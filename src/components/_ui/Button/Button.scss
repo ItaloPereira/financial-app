@@ -26,9 +26,20 @@
     box-shadow: none;
   }
 
-  &--no-text {
-    .button__icon {
-      margin-right: 0;
+  &.button--kind-text {
+    color: $black;
+    background-color: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $gray-2;
+      border-color: $gray-2;
+    }
+
+    &:active {
+      background-color: $gray-2;
+      border-color: $gray-2;
     }
   }
 
@@ -48,18 +59,12 @@
 
     &.button--kind-text {
       color: $red-5;
-      background-color: transparent;
-      border: 1px solid transparent;
 
       &:hover {
-        background-color: $gray-2;
-        border-color: $gray-2;
         color: $red-4;
       }
 
       &:active {
-        background-color: $gray-2;
-        border-color: $gray-2;
         color: $red-4;
       }
     }
@@ -72,6 +77,12 @@
   &--size-small {
     @include body-small-regular;
     padding: 0px 8px;
+  }
+
+  &--no-text {
+    .button__icon {
+      margin-right: 0;
+    }
   }
 }
 

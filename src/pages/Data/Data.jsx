@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { PlusOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+import {
+  PlusOutlined,
+  ArrowLeftOutlined,
+  SaveOutlined,
+} from "@ant-design/icons";
 
 import Page from "components/_ui/Page";
 
@@ -13,18 +18,18 @@ export default function Data() {
   const [salaries, setSalaries] = useState([
     {
       name: "Ganho 1",
-      value: 2001,
+      value: 2001.0,
     },
     {
       name: "Ganho 2",
-      value: 2002,
+      value: 2002.0,
     },
   ]);
 
   const [debits, setDebits] = useState([
     {
       name: "Conta 1",
-      value: 1000,
+      value: 1000.0,
     },
   ]);
 
@@ -40,6 +45,7 @@ export default function Data() {
   ];
 
   const [newItemAdded, setNewItemAdded] = useState(false);
+  const navigate = useNavigate();
 
   const newSalary = {
     name: `Vencimento ${salaries.length + 1}`,
@@ -90,6 +96,10 @@ export default function Data() {
     setNewItemAdded(false);
   };
 
+  const handleBack = () => {
+    navigate("/");
+  };
+
   useEffect(() => {
     handleLastInputFocus(0);
   }, [salaries]);
@@ -101,6 +111,9 @@ export default function Data() {
   return (
     <Page className="data">
       <div className="data__header">
+        <Button onClick={handleBack} kind="text" icon={<ArrowLeftOutlined />}>
+          Voltar
+        </Button>
         <h1 className="data__title h3">Edite seus dados financeiros:</h1>
       </div>
 
@@ -111,8 +124,8 @@ export default function Data() {
         onDataChange={handleDataChange}
       />
 
-      <div className="data__footer">
-        <div className="data__footer__column">
+      <div className="data__add-item">
+        <div className="data__add-item__column">
           <Button
             onClick={() => handleAddItem(0)}
             size="small"
@@ -121,7 +134,7 @@ export default function Data() {
             Adicionar vencimento
           </Button>
         </div>
-        <div className="data__footer__column">
+        <div className="data__add-item__column">
           <Button
             onClick={() => handleAddItem(1)}
             size="small"
@@ -130,6 +143,12 @@ export default function Data() {
             Adicionar dívida
           </Button>
         </div>
+      </div>
+
+      <div className="data__footer">
+        <Button onClick={() => {}} size="large" icon={<SaveOutlined />}>
+          Salvar
+        </Button>
       </div>
     </Page>
   );

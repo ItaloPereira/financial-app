@@ -53,6 +53,7 @@ export default function ContentTable(props) {
                           type="text"
                           placeholder="Nome:"
                           name="name"
+                          defaultValue={data[rowIndex]?.name}
                           value={data[rowIndex]?.name}
                           onChange={(event) => {
                             const column = contentIndex;
@@ -65,6 +66,7 @@ export default function ContentTable(props) {
                           placeholder="Valor:"
                           name="value"
                           maxLength="12"
+                          defaultValue={data[rowIndex]?.name}
                           value={data[rowIndex]?.value}
                           onChange={(event) => {
                             const column = contentIndex;

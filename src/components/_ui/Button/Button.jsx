@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import "./Button.scss";
 
-export default function Card(props) {
+export default function Button(props) {
   const { children, size, kind, color, icon, onClick } = props;
 
   return (
